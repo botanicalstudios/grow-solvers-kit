@@ -8,7 +8,7 @@ import {
   Linkedin,
   Mail
 } from 'lucide-react';
-import jayImage from '@/assets/jay-barros.jpg';
+import jayImage from '@/assets/jay-barros-new.jpg';
 
 interface AboutSectionProps {
   onNavigate: (section: string) => void;
