@@ -13,14 +13,14 @@ const HowItWorksSection = () => {
     {
       icon: Leaf,
       title: "NFT (Nutrient Film Technique)",
-      description: "A shallow stream of nutrient solution flows past plant roots in sloped channels, using gravity to create circulation.",
-      benefits: ["Efficient water use", "Faster growth", "Scalable design"]
+      description: "Our self-designed Nutrient Film Vertical Systems are optimized for short, high-yield crops, allowing for efficient crop rotation and regular maintenance of new seedlings.",
+      benefits: ["3D-printed components", "Vertical optimization", "High crop rotation"]
     },
     {
       icon: Beaker,
       title: "DWC (Deep Water Culture)",
-      description: "Plant roots are suspended in oxygenated nutrient solution, creating ideal growing conditions without soil.",
-      benefits: ["Maximum nutrient uptake", "High yields", "Simple maintenance"]
+      description: "With our Deep Water Pools, we employ floating crop methods in nutrient-rich, aerated water solutions. Ideal for cultivating fast-growing, long-lifespan plants that yield continuous harvests.",
+      benefits: ["Floating crop method", "Continuous harvests", "Long-lifespan plants"]
     }
   ];
 

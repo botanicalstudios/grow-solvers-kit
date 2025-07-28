@@ -8,36 +8,36 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Katari Farms Design System - Nature-inspired, trustworthy colors */
-    --background: 0 0% 99%;
-    --foreground: 160 15% 15%;
+    /* Katari Farms Design System - Based on brand materials */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 160 15% 15%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 15% 15%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Primary: Rich forest green - represents growth and sustainability */
-    --primary: 145 60% 25%;
+    /* Primary: Katari teal/green - main brand color */
+    --primary: 160 35% 55%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 145 45% 35%;
-    --primary-lighter: 145 30% 85%;
+    --primary-light: 160 30% 65%;
+    --primary-lighter: 160 25% 88%;
 
-    /* Secondary: Warm earth tone - represents community and trust */
-    --secondary: 25 40% 55%;
-    --secondary-foreground: 0 0% 98%;
-    --secondary-light: 25 30% 65%;
-    --secondary-lighter: 25 20% 90%;
+    /* Secondary: Warm golden yellow - accent brand color */
+    --secondary: 45 95% 65%;
+    --secondary-foreground: 0 0% 15%;
+    --secondary-light: 45 90% 75%;
+    --secondary-lighter: 45 85% 90%;
 
-    --muted: 145 10% 95%;
-    --muted-foreground: 160 8% 45%;
+    --muted: 160 10% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent: Fresh plant green - represents innovation and hope */
-    --accent: 120 45% 40%;
+    /* Accent: Fresh green - represents growth and innovation */
+    --accent: 160 35% 55%;
     --accent-foreground: 0 0% 98%;
-    --accent-light: 120 40% 50%;
-    --accent-lighter: 120 25% 88%;
+    --accent-light: 160 30% 65%;
+    --accent-lighter: 160 25% 88%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -47,8 +47,9 @@ All colors MUST be HSL.
     --ring: 145 60% 25%;
 
     /* Additional design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
     --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
     --shadow-card: 0 8px 30px hsl(var(--primary) / 0.15);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

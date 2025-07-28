@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import BenefitsSection from '@/components/sections/BenefitsSection';
 import WhyItMattersSection from '@/components/sections/WhyItMattersSection';
 import WhereWeWorkSection from '@/components/sections/WhereWeWorkSection';
 import MicroPilotsSection from '@/components/sections/MicroPilotsSection';
@@ -83,6 +84,9 @@ const Index = () => {
         {/* How It Works */}
         <HowItWorksSection />
 
+        {/* Benefits */}
+        <BenefitsSection />
+
         {/* Why It Matters */}
         <WhyItMattersSection />
 
@@ -159,8 +163,9 @@ const Index = () => {
               <div>
                 <h4 className="font-bold mb-4">Contact</h4>
                 <ul className="space-y-2 text-primary-foreground/80 text-sm">
-                  <li>hello@katarifarms.org</li>
+                  <li>jay@katari.farm</li>
                   <li>Berlin, Germany</li>
+                  <li>9470 West Elm Lane, Miramar FL, 33025</li>
                   <li>
                     <button 
                       onClick={() => scrollToSection('contact')}

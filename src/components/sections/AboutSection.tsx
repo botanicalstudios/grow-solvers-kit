@@ -40,24 +40,24 @@ const AboutSection = ({ onNavigate }: AboutSectionProps) => {
 
   const timeline = [
     {
-      year: "2010-2015",
-      title: "Community Development Foundation",
-      description: "Worked with NGOs across Latin America on sustainable development projects"
+      year: "2018",
+      title: "Katari Farms Established",
+      description: "Founded with the mission of innovating simple, low-cost indoor farming methods applicable across scalable situations"
     },
     {
-      year: "2016-2020", 
-      title: "Food Security Research",
-      description: "Studied accessible agriculture solutions for climate-vulnerable communities"
+      year: "2021-2022", 
+      title: "Berlin Market Success",
+      description: "Began commercially cultivating microgreens for the Berlin market and prototyped various forms of hydroponic farming"
     },
     {
-      year: "2021-2023",
-      title: "Hydroponic Innovation",
-      description: "Developed and tested low-tech hydroponic systems in multiple countries"
+      year: "2022-2024",
+      title: "Technology Development",
+      description: "Developed proprietary 3D-printed Nutrient Film Technique (NFT) vertical systems and smart monitoring solutions"
     },
     {
-      year: "2024",
-      title: "Katari Farms Launch",
-      description: "Founded Katari Farms to scale food sovereignty solutions globally"
+      year: "2025",
+      title: "Global Expansion",
+      description: "Officially registered as LLC in U.S. market, negotiating with potential partners in Latin America and Southern Europe"
     }
   ];
 
@@ -88,21 +88,23 @@ const AboutSection = ({ onNavigate }: AboutSectionProps) => {
               
               <div className="space-y-6">
                 <p className="text-lg text-foreground leading-relaxed">
-                  Jay Barros is a Berlin-based social entrepreneur dedicated to democratizing food production 
-                  through innovative yet accessible technology. With over a decade of experience in international 
-                  development, Jay has witnessed firsthand how climate change and economic instability threaten 
-                  food security in vulnerable communities.
+                  Jay Barros is a Berlin-based social entrepreneur who founded Katari Farms in 2018 with a mission 
+                  to innovate simple, low-cost hydroponic farming methods that work across diverse situations. 
+                  Since 2021, Katari Farms has emerged as a prominent player in Berlin's indoor farming sector, 
+                  supplying microgreens to local shops and markets while gaining significant media attention.
                 </p>
                 
                 <p className="text-lg text-foreground leading-relaxed">
-                  His approach is rooted in the belief that the most effective solutions are often the simplest ones. 
-                  Rather than high-tech fixes, Jay focuses on low-tech innovations that communities can understand, 
-                  maintain, and replicate independently.
+                  Beyond commercial success, Jay is dedicated to empowering individuals and families through 
+                  hands-on workshops and community events. His approach focuses on sharing knowledge of simple 
+                  and affordable home vegetable gardening techniques, providing guidance and support to help 
+                  communities achieve healthy harvests regardless of budget constraints.
                 </p>
 
                 <p className="text-lg text-foreground leading-relaxed">
-                  Through Katari Farms, Jay is building a global network of communities empowered with the 
-                  knowledge and tools to achieve food sovereignty, one micro-pilot at a time.
+                  With custom-tailored hydroponic systems controlled by proprietary microcontroller technology, 
+                  Jay enables remote management and offers numerous modular possibilities, enhancing flexibility 
+                  and functionality for communities worldwide.
                 </p>
 
                 <div className="flex gap-4 pt-4">
