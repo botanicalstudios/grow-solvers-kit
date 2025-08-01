@@ -148,24 +148,6 @@ const MicroPilotsSection = ({ onNavigate }: MicroPilotsSectionProps) => {
               Whether you're an NGO, school, community organization, or funder, 
               we can help you start a micro-pilot that creates immediate impact and long-term change.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="cta" 
-                size="lg"
-                onClick={() => onNavigate('get-involved')}
-                className="group"
-              >
-                Fund a Pilot
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => onNavigate('contact')}
-              >
-                Discuss Partnership
-              </Button>
-            </div>
           </div>
         </div>
       </div>

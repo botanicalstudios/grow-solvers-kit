@@ -12,7 +12,8 @@ import {
   Building2, 
   DollarSign,
   Send,
-  CheckCircle
+  CheckCircle,
+  Instagram
 } from 'lucide-react';
 
 const ContactSection = () => {
@@ -25,20 +26,52 @@ const ContactSection = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [newsletter, setNewsletter] = useState({
+    email: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would submit to a backend
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      organization: '',
-      interest: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+    
+    try {
+      // Create email body for fresh@katari.farm
+      const emailBody = `
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Organization: ${formData.organization}
+        Interest: ${formData.interest}
+        
+        Message:
+        ${formData.message}
+      `;
+
+      // Here you would typically send to your backend API that handles reCAPTCHA and emails
+      console.log('Sending email to fresh@katari.farm:', emailBody);
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your interest. We'll get back to you within 24 hours.",
+      });
+      
+      setFormData({
+        name: '',
+        email: '',
+        organization: '',
+        interest: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or email us directly at fresh@katari.farm",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -52,7 +85,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      detail: "hello@katarifarms.org",
+      detail: "fresh@katari.farm",
       description: "Best for detailed project discussions"
     },
     {
@@ -60,6 +93,13 @@ const ContactSection = () => {
       title: "Location",
       detail: "Berlin, Germany",
       description: "Central hub for European operations"
+    },
+    {
+      icon: Instagram,
+      title: "Instagram",
+      detail: "@katarifarm",
+      description: "Follow our growing journey and community updates",
+      link: "https://instagram.com/katarifarm"
     }
   ];
 
@@ -100,17 +140,28 @@ const ContactSection = () => {
                           <div className="w-12 h-12 bg-primary-lighter rounded-lg flex items-center justify-center">
                             <method.icon className="h-6 w-6 text-primary" />
                           </div>
-                          <div>
-                            <h4 className="font-bold text-foreground mb-1">
-                              {method.title}
-                            </h4>
-                            <p className="text-primary font-medium mb-2">
-                              {method.detail}
-                            </p>
-                            <p className="text-muted-foreground text-sm">
-                              {method.description}
-                            </p>
-                          </div>
+                           <div>
+                             <h4 className="font-bold text-foreground mb-1">
+                               {method.title}
+                             </h4>
+                             {method.link ? (
+                               <a 
+                                 href={method.link} 
+                                 target="_blank" 
+                                 rel="noopener noreferrer"
+                                 className="text-primary font-medium mb-2 hover:text-primary-light transition-colors block"
+                               >
+                                 {method.detail}
+                               </a>
+                             ) : (
+                               <p className="text-primary font-medium mb-2">
+                                 {method.detail}
+                               </p>
+                             )}
+                             <p className="text-muted-foreground text-sm">
+                               {method.description}
+                             </p>
+                           </div>
                         </div>
                       </CardContent>
                     </Card>
@@ -224,44 +275,22 @@ const ContactSection = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      variant="cta" 
-                      size="lg" 
-                      className="w-full group"
-                    >
-                      Send Message
-                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                     <Button 
+                       type="submit" 
+                       variant="cta" 
+                       size="lg" 
+                       className="w-full group"
+                       disabled={isSubmitting}
+                     >
+                       {isSubmitting ? 'Sending...' : 'Send Message'}
+                       <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                     </Button>
                   </form>
                 </CardContent>
               </Card>
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold mb-8 text-foreground">
-              Ready to Make an Impact?
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {interests.slice(0, 3).map((interest, index) => (
-                <Card key={index} className="border-border hover:shadow-card transition-all duration-300 cursor-pointer">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-accent-lighter rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <interest.icon className="h-6 w-6 text-accent" />
-                    </div>
-                    <h4 className="font-bold text-foreground mb-2">
-                      {interest.label}
-                    </h4>
-                    <p className="text-muted-foreground text-sm">
-                      Get started today
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

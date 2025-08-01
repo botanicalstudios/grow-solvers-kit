@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import BenefitsSection from '@/components/sections/BenefitsSection';
@@ -7,7 +6,6 @@ import WhyItMattersSection from '@/components/sections/WhyItMattersSection';
 import WhereWeWorkSection from '@/components/sections/WhereWeWorkSection';
 import MicroPilotsSection from '@/components/sections/MicroPilotsSection';
 import GetInvolvedSection from '@/components/sections/GetInvolvedSection';
-import AboutSection from '@/components/sections/AboutSection';
 import ContactSection from '@/components/sections/ContactSection';
 import { Button } from '@/components/ui/button';
 import { ArrowUp } from 'lucide-react';
@@ -70,11 +68,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <Navigation 
-        currentSection={currentSection} 
-        onNavigate={scrollToSection} 
-      />
 
       {/* Main Content */}
       <main>
@@ -99,8 +92,6 @@ const Index = () => {
         {/* Get Involved */}
         <GetInvolvedSection onNavigate={scrollToSection} />
 
-        {/* About Jay */}
-        <AboutSection onNavigate={scrollToSection} />
 
         {/* Contact */}
         <ContactSection />

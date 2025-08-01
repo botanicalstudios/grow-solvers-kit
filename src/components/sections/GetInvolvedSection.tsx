@@ -124,14 +124,6 @@ const GetInvolvedSection = ({ onNavigate }: GetInvolvedSectionProps) => {
                       <strong>Impact:</strong> {opportunity.impact}
                     </p>
                   </div>
-                  <Button 
-                    variant="cta" 
-                    className="w-full group"
-                    onClick={() => onNavigate('contact')}
-                  >
-                    {opportunity.cta}
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -204,24 +196,6 @@ const GetInvolvedSection = ({ onNavigate }: GetInvolvedSectionProps) => {
               Every contribution moves us closer to a world where everyone has access to fresh, 
               nutritious food regardless of their circumstances.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="lg"
-                onClick={() => onNavigate('contact')}
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-              >
-                Start a Conversation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => onNavigate('contact')}
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                Download Project Info
-              </Button>
-            </div>
           </div>
         </div>
       </div>

@@ -8,43 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Katari Farms Design System - Based on brand materials */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 15%;
+    /* Katari Farm inspired color palette matching katari.farm */
+    --background: 39 29% 94%;         /* Cream/beige background like katari.farm */
+    --foreground: 25 15% 15%;         /* Dark brown/charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card: 39 29% 97%;               /* Very light cream */
+    --card-foreground: 25 15% 15%;    /* Dark brown/charcoal */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover: 39 29% 97%;            /* Very light cream */
+    --popover-foreground: 25 15% 15%; /* Dark brown/charcoal */
 
-    /* Primary: Katari teal/green - main brand color */
-    --primary: 160 35% 55%;
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 160 30% 65%;
-    --primary-lighter: 160 25% 88%;
+    /* Primary: Vibrant leafy green */
+    --primary: 95 76% 44%;            
+    --primary-foreground: 0 0% 100%;  /* White */
+    --primary-light: 95 76% 54%;      /* Lighter green */
+    --primary-lighter: 95 76% 94%;    /* Very light green */
 
-    /* Secondary: Warm golden yellow - accent brand color */
-    --secondary: 45 95% 65%;
-    --secondary-foreground: 0 0% 15%;
-    --secondary-light: 45 90% 75%;
-    --secondary-lighter: 45 85% 90%;
+    /* Secondary/Accent: Katari farm yellow accent */
+    --secondary: 45 95% 55%;          /* Katari farm yellow accent */
+    --secondary-foreground: 25 15% 15%; /* Dark brown */
+    --secondary-light: 45 95% 65%;    /* Lighter yellow */
+    --secondary-lighter: 45 95% 92%;  /* Very light yellow */
 
-    --muted: 160 10% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 39 15% 85%;              /* Light beige */
+    --muted-foreground: 25 15% 45%;   /* Medium brown */
 
-    /* Accent: Fresh green - represents growth and innovation */
-    --accent: 160 35% 55%;
-    --accent-foreground: 0 0% 98%;
-    --accent-light: 160 30% 65%;
-    --accent-lighter: 160 25% 88%;
+    --accent: 45 95% 55%;             /* Yellow accent matching Katari */
+    --accent-foreground: 25 15% 15%;  /* Dark brown */
+    --accent-light: 45 95% 65%;       /* Lighter yellow */
+    --accent-lighter: 45 95% 92%;     /* Very light yellow */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;         /* Red for alerts */
+    --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 145 15% 88%;
-    --input: 145 15% 92%;
-    --ring: 145 60% 25%;
+    --border: 39 15% 80%;             /* Light brown border */
+    --input: 39 15% 88%;              /* Input background */
+    --ring: 95 76% 44%;               /* Green focus ring */
 
     /* Additional design tokens */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
@@ -54,7 +53,7 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 30px hsl(var(--primary) / 0.15);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -119,6 +118,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
   }
 }
 
