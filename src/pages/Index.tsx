@@ -125,7 +125,7 @@ const Index = () => {
                       <div>
                         <h5 className="font-bold">Email</h5>
                         <p className="text-primary-foreground/80 text-sm">
-                          fresh-atß-katari(dot)farm
+                          fresh-at-katari(dot)farm
                         </p>
                         <p className="text-primary-foreground/60 text-xs">
                           Best for detailed project discussions
