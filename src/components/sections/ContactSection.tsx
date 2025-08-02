@@ -52,7 +52,7 @@ const ContactSection = () => {
     }
 
     try {
-      const token = await window.grecaptcha.execute('6LfYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY', { action: 'contact_form' });
+      const token = await window.grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY', { action: 'contact_form' });
       return token;
     } catch (error) {
       console.error('reCAPTCHA execution failed:', error);
