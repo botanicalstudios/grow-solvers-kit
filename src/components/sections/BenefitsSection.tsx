@@ -35,7 +35,7 @@ const BenefitsSection = () => {
       icon: Leaf,
       title: "Leafy Greens (Lettuce, Kale, Spinach, Bok Choy)",
       description: "Fast-growing (3-4 weeks), high yields, and popular in urban markets.",
-      stats: "Hydroponic lettuce yields up to 20x higher per hectare than soil farming, with Vietnamese models producing 35-48 tonnes per 1,000 m² in controlled environments."
+      stats: "Hydroponic lettuce yields up to 20x higher per hectare than soil farming, with test models producing 35-48 tonnes per 1,000 m² in controlled environments."
     },
     {
       icon: Award,
