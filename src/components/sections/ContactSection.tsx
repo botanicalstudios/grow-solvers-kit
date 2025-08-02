@@ -65,23 +65,12 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Get reCAPTCHA token
-      const recaptchaToken = await executeRecaptcha();
-      if (!recaptchaToken) {
-        toast({
-          title: "Error",
-          description: "Security verification failed. Please try again.",
-          variant: "destructive",
-        });
-        setIsSubmitting(false);
-        return;
-      }
 
       // Send contact message
       const { data, error } = await supabase.functions.invoke('send-contact-message', {
         body: {
           ...formData,
-          recaptchaToken,
+          recaptchaToken: 'skip',
         },
       });
 
@@ -135,22 +124,12 @@ const ContactSection = () => {
     }
 
     try {
-      // Get reCAPTCHA token
-      const recaptchaToken = await executeRecaptcha();
-      if (!recaptchaToken) {
-        toast({
-          title: "Error",
-          description: "Security verification failed. Please try again.",
-          variant: "destructive",
-        });
-        return;
-      }
 
       // Subscribe to newsletter
       const { data, error } = await supabase.functions.invoke('handle-newsletter-subscription', {
         body: {
           email,
-          recaptchaToken,
+          recaptchaToken: 'skip',
         },
       });
 
