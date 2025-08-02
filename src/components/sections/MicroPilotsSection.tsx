@@ -55,7 +55,6 @@ const MicroPilotsSection = ({ onNavigate }: MicroPilotsSectionProps) => {
     { label: "Installation Time", value: "1-2 days" },
     { label: "Training Duration", value: "1 week workshop" },
     { label: "Maintenance", value: "2-3 hours/week" },
-    { label: "Expected Yield", value: "20-30 plants ongoing" },
     { label: "ROI Timeline", value: "3-6 months" }
   ];
 

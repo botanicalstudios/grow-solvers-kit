@@ -8,7 +8,7 @@ import MicroPilotsSection from '@/components/sections/MicroPilotsSection';
 import GetInvolvedSection from '@/components/sections/GetInvolvedSection';
 import ContactSection from '@/components/sections/ContactSection';
 import { Button } from '@/components/ui/button';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Mail, MapPin, Instagram } from 'lucide-react';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState('home');
@@ -102,7 +102,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="md:col-span-2">
+              <div className="md:col-span-1">
                 <h3 className="text-2xl font-bold mb-4">Katari Farms</h3>
                 <p className="text-primary-foreground/80 leading-relaxed mb-4">
                   Empowering food sovereignty in underserved communities through 
@@ -113,59 +113,68 @@ const Index = () => {
                 </p>
               </div>
               
-              <div>
-                <h4 className="font-bold mb-4">Quick Links</h4>
-                <ul className="space-y-2 text-primary-foreground/80">
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('how-it-works')}
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      How It Works
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('micro-pilots')}
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      Micro-Pilots
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('get-involved')}
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      Get Involved
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('about')}
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      About
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-bold mb-4">Contact</h4>
-                <ul className="space-y-2 text-primary-foreground/80 text-sm">
-                  <li>jay@katari.farm</li>
-                  <li>Berlin, Germany</li>
-                  <li>9470 West Elm Lane, Miramar FL, 33025</li>
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('contact')}
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      Send Message
-                    </button>
-                  </li>
-                </ul>
+              <div className="md:col-span-3">
+                <h4 className="font-bold mb-6">Contact Information</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
+                        <Mail className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h5 className="font-bold">Email</h5>
+                        <p className="text-primary-foreground/80 text-sm">
+                          fresh@katari.farm
+                        </p>
+                        <p className="text-primary-foreground/60 text-xs">
+                          Best for detailed project discussions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h5 className="font-bold">Location</h5>
+                        <p className="text-primary-foreground/80 text-sm">
+                          Berlin, Germany
+                        </p>
+                        <p className="text-primary-foreground/60 text-xs">
+                          Central hub for European operations
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Instagram */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
+                        <Instagram className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h5 className="font-bold">Instagram</h5>
+                        <a 
+                          href="https://instagram.com/katarifarm" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-primary-foreground/80 text-sm hover:text-primary-foreground transition-colors"
+                        >
+                          @katarifarm
+                        </a>
+                        <p className="text-primary-foreground/60 text-xs">
+                          Follow our growing journey
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
