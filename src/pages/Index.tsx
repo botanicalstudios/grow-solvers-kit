@@ -108,9 +108,9 @@ const Index = () => {
                   Empowering food sovereignty in underserved communities through 
                   simple, scalable hydroponic farming.
                 </p>
-                <p className="text-primary-foreground/80 text-sm">
-                  © 2024 Katari Farms. Fighting food insecurity, one community at a time.
-                </p>
+               <p className="text-primary-foreground/80 text-sm">
+  © {new Date().getFullYear()} Katari Farms. Fighting food insecurity, one community at a time.
+</p>
               </div>
               
               <div className="md:col-span-3">
@@ -125,7 +125,7 @@ const Index = () => {
                       <div>
                         <h5 className="font-bold">Email</h5>
                         <p className="text-primary-foreground/80 text-sm">
-                          fresh@katari.farm
+                          fresh-atß-katari(dot)farm
                         </p>
                         <p className="text-primary-foreground/60 text-xs">
                           Best for detailed project discussions
