@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          interest: string
+          ip_address: string | null
+          message: string
+          name: string
+          organization: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          interest: string
+          ip_address?: string | null
+          message: string
+          name: string
+          organization?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          interest?: string
+          ip_address?: string | null
+          message?: string
+          name?: string
+          organization?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           email: string

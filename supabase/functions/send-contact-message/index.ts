@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 interface ContactFormData {
   name: string;
@@ -16,69 +15,34 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  const recaptchaSecret = Deno.env.get("RECAPTCHA_SECRET_KEY");
-  if (!recaptchaSecret) {
-    console.error("RECAPTCHA_SECRET_KEY not found");
-    return false;
-  }
+async function saveContactMessage(data: ContactFormData, req: Request): Promise<boolean> {
+  const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+  const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+  
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
   try {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `secret=${recaptchaSecret}&response=${token}`,
-    });
+    const { error } = await supabase
+      .from('contact_messages')
+      .insert({
+        name: data.name,
+        email: data.email,
+        organization: data.organization || null,
+        interest: data.interest,
+        message: data.message,
+        ip_address: req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || null,
+        user_agent: req.headers.get('user-agent') || null,
+      });
 
-    const result = await response.json();
-    return result.success && result.score > 0.5;
-  } catch (error) {
-    console.error("reCAPTCHA verification failed:", error);
-    return false;
-  }
-}
-
-async function sendEmail(data: ContactFormData): Promise<boolean> {
-  if (!RESEND_API_KEY) {
-    console.error("RESEND_API_KEY not found");
-    return false;
-  }
-
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "contact@katari.farm",
-        to: ["fresh@katari.farm"],
-        subject: `New Contact Form Message from ${data.name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Organization:</strong> ${data.organization || 'Not provided'}</p>
-          <p><strong>Interest:</strong> ${data.interest}</p>
-          <p><strong>Message:</strong></p>
-          <p>${data.message.replace(/\n/g, '<br>')}</p>
-        `,
-      }),
-    });
-
-    if (response.ok) {
-      console.log("Email sent successfully");
-      return true;
-    } else {
-      const error = await response.text();
-      console.error("Failed to send email:", error);
+    if (error) {
+      console.error('Error saving contact message:', error);
       return false;
     }
+
+    console.log('Contact message saved successfully');
+    return true;
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error('Error saving contact message:', error);
     return false;
   }
 }
@@ -94,11 +58,11 @@ serve(async (req) => {
     // Skip reCAPTCHA verification completely
     console.log("Skipping reCAPTCHA verification");
 
-    // Send email
-    const emailSent = await sendEmail(data);
-    if (!emailSent) {
+    // Save contact message to database
+    const messageSaved = await saveContactMessage(data, req);
+    if (!messageSaved) {
       return new Response(
-        JSON.stringify({ error: "Failed to send email" }),
+        JSON.stringify({ error: "Failed to save message" }),
         { 
           status: 500, 
           headers: { ...corsHeaders, "Content-Type": "application/json" } 
@@ -107,7 +71,7 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ message: "Message sent successfully" }),
+      JSON.stringify({ message: "Message saved successfully" }),
       { 
         status: 200, 
         headers: { ...corsHeaders, "Content-Type": "application/json" } 
